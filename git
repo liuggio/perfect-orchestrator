@@ -1,0 +1,62 @@
+#!/bin/bash
+PROJECT="secret-project"
+FEATURE="feature1"
+
+echo "Counting objects: 3, done."
+echo "Writing objects: 100% (3/3), 214 bytes | 0 bytes/s, done."
+sleep 0.3
+echo "Total 3 (delta 0), reused 0 (delta 0)"
+sleep 1
+echo "To git@github.com:liuggio/$PROJECT.git"
+echo " * [new branch]     $FEATURE -> master"
+sleep 0.3
+echo "Branch $FEATURE set up to track remote branch master from origin"
+sleep 3
+echo -en "\n\e[35m[Test]\e[0m   Running test in parallel:  ."
+sleep 3; echo -n "."
+sleep 1.5; echo -n "."
+sleep 4; echo -e ". \n                                v Completed!    (10 secs)"
+sleep 2
+echo -e "\n\e[35m[Deploy]\e[0m Smoothly deploying to production: $FEATURE"
+sleep 1
+echo " * 10% of containers"
+sleep 0.5;echo -en "\e[1A"; echo -e "\e[0K\r * to 11% of containers"
+sleep 0.2;echo -en "\e[1A"; echo -e "\e[0K\r * to 15% of containers"
+sleep 0.4;echo -en "\e[1A"; echo -e "\e[0K\r * to 20% of containers"
+sleep 0.3;echo -en "\e[1A"; echo -e "\e[0K\r * to 34% of containers"
+sleep 0.9;echo -en "\e[1A"; echo -e "\e[0K\r * to 40% of containers"
+sleep 0.2;echo -en "\e[1A"; echo -e "\e[0K\r * to 60% of containers"
+sleep 0.5;echo -en "\e[1A"; echo -e "\e[0K\r * to 90% of containers"
+sleep 0.5;echo -en "\e[1A"; echo -e "\e[0K\r * to 98% of containers"
+sleep 0.8;echo -en "\e[1A"; echo -en "\e[0K\r * to 100% of containers"
+sleep 1
+echo -e "        v Fully deployed\n"
+sleep 1
+sleep 2.5
+echo -e "\e[35m[Report]\e[0m Lead time of this feature is 3 days"
+echo "         Avg of 3.4 days"
+sleep 3
+echo -e "\n\e[5mYour customers are happy. \n"
+sleep 1
+echo -e "\n\e[7mYou just got a salary raise.\n"
+sleep 2.5
+echo -e "\nI ordered sushi for you tonight with Company Credit Card .\n"
+sleep 5
+echo -e "\nI cleaned your house too.\e[27m\n"
+sleep 5
+echo -en "\n\e[32mW"
+echo -en "`sleep 0.5`a"
+echo -en "`sleep 0.5`k"
+echo -en "`sleep 0.5`e"
+echo -en "`sleep 0.5` "
+echo -en "`sleep 0.5`u"
+echo -en "`sleep 0.5`p"
+echo -en "`sleep 0.5` "
+echo -en "`sleep 0.5`n"
+echo -en "`sleep 0.5`e"
+echo -en "`sleep 0.5`o"
+echo -en "`sleep 0.5`.\e[0m"
+sleep 5
+LINES=$(tput lines); COLUMNS=$(tput cols)
+echo $LINES; echo $COLUMNS
+clear ; while :; do echo $LINES $COLUMNS $(( $RANDOM % $COLUMNS)) $(( $RANDOM % 72 )) ;sleep 0.05; done|gawk '{ letters="liuggioliuggioliuggio"; c=$4; letter=substr(letters,c,1);a[$3]=0;for (x in a) {o=a[x];a[x]=a[x]+1; printf "\033[%s;%sH\033[2;32m%s",o,x,letter; printf "\033[%s;%sH\033[1;37m%s\033[0;0H",a[x],x,letter;if (a[x] >= $1) { a[x]=0; } }}'
